@@ -13,7 +13,7 @@ pipeline {
             steps {
                 sh 'docker build -t expressjs_v1 -f Dockerfile --no-cache .'
                 sh 'docker stop expressjs_v1 || true && docker rm expressjs_v1 || true'
-                sh 'docker run -d -it -p 4444:80 --net=vnoveprod_app-net --name=expressjs_v1 expressjs_v1'
+                sh 'docker run -d -it -p 3100:3100 --net=vnoveprod_app-net --name=expressjs_v1 expressjs_v1'
             }
         }
         stage('Deliver') {
