@@ -11,9 +11,9 @@ pipeline {
         }
         stage('Build React') {
             steps {
-                sh 'docker build -t exporessjs_v1 -f Dockerfile --no-cache .'
-                sh 'docker stop exporessjs_v1 || true && docker rm exporessjs_v1 || true'
-                sh 'docker run -d -it -p 4444:80 --net=vnoveprod_app-net --name=exporessjs_v1 exporessjs_v1'
+                sh 'docker build -t expressjs_v1 -f Dockerfile --no-cache .'
+                sh 'docker stop expressjs_v1 || true && docker rm expressjs_v1 || true'
+                sh 'docker run -d -it -p 4444:80 --net=vnoveprod_app-net --name=expressjs_v1 expressjs_v1'
             }
         }
         stage('Deliver') {
